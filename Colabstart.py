@@ -1,7 +1,7 @@
 import os, time, pexpect, sys
 
 def ngrok(port=6007):
-  get_ipython().system_raw('./ngrok http +str(port)+ &')
+  get_ipython().system_raw('./ngrok http '+str(port)+' &')
   url = get_ipython().getoutput("curl -s http://localhost:4040/api/tunnels | python3 -c \
      \"import sys, json; print(json.load(sys.stdin)['tunnels'][0]['public_url'])\"")
   print('Main '+url[0] + '\n''Colab '+url[0]+"/tree/drive/CoLab")
@@ -39,6 +39,6 @@ def load(port=6007):
 	  get_ipython().getoutput(i)
 	  
 	if len(get_ipython().getoutput('jupyter notebook list'))==2:
-	  get_ipython().system_raw("jupyter notebook --port +str(port)+ &")
+	  get_ipython().system_raw("jupyter notebook --port "+str(port)+" &")
 	
   
