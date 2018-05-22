@@ -12,6 +12,7 @@ def task():
 	return pandas.DataFrame(dd,np.arange(1,len(dd)+1),['PID','memory','time','process'])
 def ngrok(port=6007):
   import re
+  get_ipython().system_raw('./ngrok http '+ str(port)+ ' &')
   url = ' '.join(re.findall('http://.*?ngrok.io',' '.join(get_ipython().getoutput('curl -s http://localhost:4040/api/tunnels'))))
   print('Main '+url + '\n''Colab '+url+"/tree/drive/CoLab")
 
