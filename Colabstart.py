@@ -1,6 +1,7 @@
-import pip
+#import pip
 import os, time, pexpect, sys
-pip.main(['install', 'tqdm'])
+#pip.main(['install', 'tqdm'])
+os.system('pip install tqdm')
 from tqdm import tqdm
 import pandas
 import numpy as np
