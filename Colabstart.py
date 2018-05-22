@@ -4,7 +4,7 @@ def ngrok(port=6007):
   get_ipython().system_raw('./ngrok http '+str(port)+' &')
   url = get_ipython().getoutput("curl -s http://localhost:4040/api/tunnels | python3 -c \
      \"import sys, json; print(json.load(sys.stdin)['tunnels'][0]['public_url'])\"")
-  print('Main '+url[0] + '\n''Colab '+url[0]+"/tree/drive/CoLab")
+  print('Main '+url[0] + '\n'+'Colab '+url[0]+"/tree/drive/CoLab")
   
 def localtunnel(domain,port=6007):
 	get_ipython().system_raw("ruby localtunnel.rb -s " + domain + " -p " + str(port) + " &")
@@ -25,8 +25,8 @@ def load(port=6007):
 	'pip install -q keras',
 	'pip install jupyterlab',
 	'jupyter notebook --generate-config',
-	"echo c.NotebookApp.token = u'' >> ~/.jupyter/jupyter_notebook_config.py",
-	"echo c.NotebookApp.notebook_dir = u'' >> ~/.jupyter/jupyter_notebook_config.py",
+	"echo \"c.NotebookApp.token = u''\" >> ~/.jupyter/jupyter_notebook_config.py",
+	"echo \"c.NotebookApp.notebook_dir = u''\" >> ~/.jupyter/jupyter_notebook_config.py",
 	'./ngrok authtoken 5vhWvAzJGtsJbnVp4V5di_6KNVTN8BpHMqKYyAaFFXQ',
 	'unzip Colab/.gdfuse.zip',
 	'mkdir -p drive',
@@ -37,8 +37,5 @@ def load(port=6007):
 
 	for i in cmd:
 	  get_ipython().getoutput(i)
-	  
 	if len(get_ipython().getoutput('jupyter notebook list'))==2:
 	  get_ipython().system_raw("jupyter notebook --port "+str(port)+" &")
-	
-  
