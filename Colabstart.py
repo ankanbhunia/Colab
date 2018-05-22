@@ -34,9 +34,9 @@ def load(port=6007):
 	['wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip'],
 	['unzip ngrok-stable-linux-amd64.zip'],not os.path.isdir("ngrok")]
   
-  for i in cmd:
-    if i[1]:
-      sys.stdout.write(' '.join(get_ipython().getoutput(i[0]))) ; sys.stdout.flush()
+	for i in cmd:
+	  if i[1]:
+	    sys.stdout.write(' '.join(get_ipython().getoutput(i[0]))) ; sys.stdout.flush()
     
 	if len(get_ipython().getoutput('jupyter notebook list'))==2:
 	  get_ipython().system_raw("jupyter notebook --port "+str(port)+" &")
