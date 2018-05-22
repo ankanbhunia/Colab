@@ -1,6 +1,12 @@
 import os, time, pexpect, sys
 from tqdm import tqdm
+import pandas
+import numpy as np
 
+
+def task():
+	dd = [i.split(' ') for i in get_ipython().getoutput("ps -ef | grep python| grep -v grep | awk '{print $2, $7, $8}'")]
+	pandas.DataFrame(dd,np.arange(1,len(dd)+1),['PID','time','process'])
 def ngrok(port=6007):
   import re
   url = ' '.join(re.findall('http://.*?ngrok.io',' '.join(get_ipython().getoutput('curl -s http://localhost:4040/api/tunnels'))))
