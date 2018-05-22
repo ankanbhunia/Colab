@@ -42,7 +42,8 @@ def load(port=6007,show_result=False):
 	['npm install -g localtunnel',True],
 	['wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip',not os.path.isfile("ngrok-stable-linux-amd64.zip")],
 	['unzip ngrok-stable-linux-amd64.zip',not os.path.isfile("ngrok")],
-  ['./ngrok authtoken 5vhWvAzJGtsJbnVp4V5di_6KNVTN8BpHMqKYyAaFFXQ',not os.path.isfile("ngrok")]]
+  	['./ngrok authtoken 5vhWvAzJGtsJbnVp4V5di_6KNVTN8BpHMqKYyAaFFXQ',not os.path.isfile("ngrok")],
+	['pip install gpustat']]
   
 	for i in tqdm(cmd):
 	  if i[1]:
