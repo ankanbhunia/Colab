@@ -1,8 +1,9 @@
+get_ipython().getoutput('pip install tqdm')
 import os, time, pexpect, sys
 from tqdm import tqdm
 import pandas
 import numpy as np
-get_ipython().getoutput('pip install tqdm')
+
 
 def task():
 	dd = [i.split(' ') for i in get_ipython().getoutput("ps -ef | grep python| grep -v grep | awk '{print $2, $7, $8}'")]
