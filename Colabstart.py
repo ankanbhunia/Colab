@@ -37,9 +37,6 @@ def load(port=6007,show_result=False):
 	['jupyter notebook --generate-config',not os.path.isfile('/content/.jupyter/jupyter_notebook_config.py')],
 	["echo \"c.NotebookApp.token = u''\" >> ~/.jupyter/jupyter_notebook_config.py",True],
 	["echo \"c.NotebookApp.notebook_dir = u''\" >> ~/.jupyter/jupyter_notebook_config.py",True],
-	['unzip gdfuse.zip',not os.path.isdir("/content/.gdfuse")],
-	['mkdir -p drive',not os.path.isdir("drive")],
-	['google-drive-ocamlfuse drive', not os.path.isdir("drive")],
 	['npm install -g localtunnel',True],
 	['wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip',not os.path.isfile("ngrok-stable-linux-amd64.zip")],
 	['unzip ngrok-stable-linux-amd64.zip',not os.path.isfile("ngrok")],
@@ -56,3 +53,13 @@ def load(port=6007,show_result=False):
     
 	if len(get_ipython().getoutput('jupyter notebook list'))==2:
 	  get_ipython().system_raw("jupyter notebook --port "+str(port)+" &")
+	
+def load_drive(drive_no):	 
+	cmd = [['unzip gdfuse'+str(drive_no)+'.zip',not os.path.isdir("/content/.gdfuse")],
+	['mkdir -p drive',not os.path.isdir("drive")],
+	['google-drive-ocamlfuse drive', not os.path.isdir("drive")]]
+	
+	for i in cmd:
+	  if i[1]:
+	      get_ipython().getoutput(i[0])
+	     
