@@ -7,8 +7,8 @@ import pandas
 import numpy as np
 import time
 
-def task():
-	dd = [i.split(' ') for i in get_ipython().getoutput("ps -eF | grep python| grep -v grep | awk '{print  $2,  $6, $10, $11}'")]
+def task(pross):
+	dd = [i.split(' ') for i in get_ipython().getoutput("ps -eF | grep "+pross+"| grep -v grep | awk '{print  $2,  $6, $10, $11}'")]
 	return pandas.DataFrame(dd,np.arange(1,len(dd)+1),['PID','memory','time','process'])
 def ngrok(auth , port=6007):
   import re
