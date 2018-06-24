@@ -5,7 +5,7 @@ os.system('pip install tqdm')
 from tqdm import tqdm
 import pandas
 import numpy as np
-
+import time
 
 def task():
 	dd = [i.split(' ') for i in get_ipython().getoutput("ps -eF | grep python| grep -v grep | awk '{print  $2,  $6, $10, $11}'")]
@@ -13,6 +13,7 @@ def task():
 def ngrok(port=6007):
   import re
   get_ipython().system_raw('./ngrok http '+ str(port)+ ' &')
+  time.sleep(5)
   url = ' '.join(re.findall('http://.*?ngrok.io',' '.join(get_ipython().getoutput('curl -s http://localhost:4040/api/tunnels'))))
   print('Main '+url + '\n''Colab '+url+"/tree/drive/CoLab")
 
