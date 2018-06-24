@@ -10,13 +10,14 @@ import time
 def task():
 	dd = [i.split(' ') for i in get_ipython().getoutput("ps -eF | grep python| grep -v grep | awk '{print  $2,  $6, $10, $11}'")]
 	return pandas.DataFrame(dd,np.arange(1,len(dd)+1),['PID','memory','time','process'])
-def ngrok(port=6007):
+def ngrok(auth , port=6007):
   import re
+  get_ipython().system_raw('./ngrok authtoken ' + auth)
   get_ipython().system_raw('./ngrok http '+ str(port)+ ' &')
   time.sleep(5)
   url = ' '.join(re.findall('http://.*?ngrok.io',' '.join(get_ipython().getoutput('curl -s http://localhost:4040/api/tunnels'))))
   print('Main '+url + '\n''Colab '+url+"/tree/drive/CoLab")
-
+  
 def localtunnel(domain,port=6007):
 	get_ipython().system_raw("ruby localtunnel.rb -s " + domain + " -p " + str(port) + " &")
 	print ('http://'+domain + '.localtunnel.me')
@@ -41,7 +42,6 @@ def load(port=6007,show_result=False):
 	['npm install -g localtunnel',True],
 	['wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip',not os.path.isfile("ngrok-stable-linux-amd64.zip")],
 	['unzip ngrok-stable-linux-amd64.zip',not os.path.isfile("ngrok")],
-  	['./ngrok authtoken 5vhWvAzJGtsJbnVp4V5di_6KNVTN8BpHMqKYyAaFFXQ',not os.path.isfile("ngrok")],
 	['pip install gpustat',True]]
   
 	for i in tqdm(cmd):
