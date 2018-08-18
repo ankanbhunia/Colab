@@ -16,11 +16,11 @@ def ngrok(auth , port=6007):
   get_ipython().system_raw('./ngrok http '+ str(port)+ ' &')
   time.sleep(5)
   url = ' '.join(re.findall('http://.*?ngrok.io',' '.join(get_ipython().getoutput('curl -s http://localhost:4040/api/tunnels'))))
-  print('Main '+url + '\n''Colab '+url+"/tree/drive/CoLab")
+  return url 
   
 def localtunnel(domain,port=6007):
 	get_ipython().system_raw("ruby localtunnel.rb -s " + domain + " -p " + str(port) + " &")
-	print ('http://'+domain + '.localtunnel.me')
+	return 'http://'+domain + '.localtunnel.me'
 	
 def load(port=6007,show_result=False):
 	cmd = [['apt-get install -y -qq software-properties-common python-software-properties module-init-tools',True],
