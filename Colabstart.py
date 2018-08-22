@@ -61,5 +61,5 @@ def load_drive(drive_no):
 	['google-drive-ocamlfuse drive', not os.path.isdir("drive")]]
 	
 	for i in cmd:
-	  if i[1]: print(get_ipython().getoutput(i[0]))
+	  if i[1]: get_ipython().getoutput(i[0])
 	     
