@@ -56,7 +56,7 @@ def load(port=6007,show_result=False):
 	  get_ipython().system_raw("jupyter notebook --port "+str(port)+" &")
 	
 def load_drive(drive_no):	 
-	cmd = [['unzip gdfuse'+str(drive_no)+'.zip'+'-d /root/', not os.path.isdir("/root/.gdfuse")],
+	cmd = [['unzip gdfuse'+str(drive_no)+'.zip'+' -d /root/', not os.path.isdir("/root/.gdfuse")],
 	['mkdir -p drive',not os.path.isdir("drive")],
 	['google-drive-ocamlfuse drive', not os.path.isdir("drive")]]
 	
