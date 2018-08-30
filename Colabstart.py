@@ -48,10 +48,9 @@ def load(port=6007,show_result=False):
 	      else:
 		        print (i[0]); print(get_ipython().getoutput(i[0]))
 			
-	print (len(get_ipython().getoutput('jupyter notebook list')))
-
+	
     
-	if len(get_ipython().getoutput('jupyter notebook list'))==1:
+	if len(get_ipython().getoutput('jupyter notebook list'))==2:
 	  get_ipython().system_raw("jupyter notebook --port "+str(port)+" &")
 	
 def load_drive(drive_no):	 
