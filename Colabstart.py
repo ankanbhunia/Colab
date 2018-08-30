@@ -49,8 +49,8 @@ def load(port=6007,show_result=False):
 		        print (i[0]); print(get_ipython().getoutput(i[0]))
 
     
-	if len(get_ipython().getoutput('jupyter notebook list'))==2:
-	  get_ipython().system_raw("jupyter lab --port "+str(port)+" &")
+	if len(get_ipython().getoutput('jupyter notebook list'))==1:
+	  get_ipython().system_raw("jupyter not --port "+str(port)+" &")
 	
 def load_drive(drive_no):	 
 	cmd = [['unzip gdfuse'+str(drive_no)+'.zip'+' -d /root/', not os.path.isdir("/root/.gdfuse")],
