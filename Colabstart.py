@@ -33,7 +33,7 @@ def load(port=6007,show_result=False):
 	['apt-get -qq install -y libsm6 libxext6 && pip install -q -U opencv-python',True],
 	['pip install -q keras',True],
 	['pip install jupyterlab',True],
-	['jupyter notebook --generate-config',not os.path.isfile('/content/.jupyter/jupyter_notebook_config.py')],
+	['jupyter notebook --generate-config',not os.path.isfile('~/.jupyter/jupyter_notebook_config.py')],
 	["echo \"c.NotebookApp.token = u''\" >> ~/.jupyter/jupyter_notebook_config.py",True],
 	["echo \"c.NotebookApp.notebook_dir = u''\" >> ~/.jupyter/jupyter_notebook_config.py",True],
 	['npm install -g localtunnel',True],
