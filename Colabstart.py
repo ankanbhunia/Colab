@@ -45,7 +45,7 @@ def load(port=6007,show_result=False):
 	for i in tqdm(cmd):
 	  if i[1]:
 	      if show_result ==False:
-		        get_ipython().system_raw(i[0] + ' &' )
+		        get_ipython().system_raw(i[0])
 	      else:
 		        print (i[0]); print(get_ipython().getoutput(i[0]))
 			
