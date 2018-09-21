@@ -27,19 +27,19 @@ def load(port=6007,show_result=False):
 	cmd = [['apt-get install -y -qq software-properties-common python-software-properties module-init-tools',True],
 	['add-apt-repository -y ppa:alessandro-strada/ppa 2>&1 > /dev/null',True],
 	['apt-get update -qq 2>&1 > /dev/null',True],
-	['apt-get install unrar &',True],
-	['apt-get install ruby-full &',True],
+	['apt-get install unrar',True],
+	['apt-get install ruby-full',True],
 	['pip install --upgrade jupyter',True],
-	['apt-get -qq install -y libsm6 libxext6 && pip install -q -U opencv-python &',True],
-	['pip install -q keras &',True],
-	['pip install jupyterlab &',True],
+	['apt-get -qq install -y libsm6 libxext6 && pip install -q -U opencv-python',True],
+	['pip install -q keras',True],
+	['pip install jupyterlab',True],
 	['jupyter notebook --generate-config',not os.path.isfile('~/.jupyter/jupyter_notebook_config.py')],
 	["echo \"c.NotebookApp.token = u''\" >> ~/.jupyter/jupyter_notebook_config.py",True],
 	["echo \"c.NotebookApp.notebook_dir = u''\" >> ~/.jupyter/jupyter_notebook_config.py",True],
-	['npm install -g localtunnel &',True],
+	['npm install -g localtunnel',True],
 	['wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip',not os.path.isfile("ngrok-stable-linux-amd64.zip")],
 	['unzip ngrok-stable-linux-amd64.zip',not os.path.isfile("ngrok")],
-	['pip install gpustat &',True]]
+	['pip install gpustat',True]]
   
 	for i in tqdm(cmd):
 	  if i[1]:
