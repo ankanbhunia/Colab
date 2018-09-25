@@ -39,7 +39,10 @@ def load(port=6007,show_result=False):
 	['npm install -g localtunnel',True],
 	['wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip',not os.path.isfile("ngrok-stable-linux-amd64.zip")],
 	['unzip ngrok-stable-linux-amd64.zip',not os.path.isfile("ngrok")],
-	['pip install gpustat',True]]
+	['pip install gpustat',True],
+	['dpkg -i google-drive-ocamlfuse_0.7.0-0ubuntu1_amd64.deb',True],
+        ['apt-get install -f',True],
+	['apt-get -y install -qq fuse', True]]
   
 	for i in tqdm(cmd):
 	  if i[1]:
@@ -54,7 +57,7 @@ def load(port=6007,show_result=False):
 	  get_ipython().system_raw("jupyter notebook --port "+str(port)+" &")
 	
 def load_drive(drive_no):	 
-	cmd = [['unzip gdfuse'+str(drive_no)+'.zip'+' -d /root/', not os.path.isdir("/root/.gdfuse")],
+	cmd = [['unzip gdfuse'+str(drive_no)+'.zip'+' -d /', not os.path.isdir("/root/.gdfuse")],
 	['mkdir -p drive',not os.path.isdir("drive")],
 	['google-drive-ocamlfuse drive', not os.path.isdir("drive")]]
 	
