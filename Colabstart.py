@@ -42,7 +42,8 @@ def load(port=6007,show_result=False):
 	['pip install gpustat',True],
 	['dpkg -i google-drive-ocamlfuse_0.7.0-0ubuntu1_amd64.deb',True],
         ['apt-get install -f',True],
-	['apt-get -y install -qq fuse', True]]
+	['apt-get -y install -qq fuse', True],
+	['unzip gdfuse.zip -d /', not os.path.isdir("/root/.gdfuse")]]
   
 	for i in tqdm(cmd):
 	  if i[1]:
