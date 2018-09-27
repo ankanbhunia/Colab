@@ -43,7 +43,9 @@ def load(port=6007,show_result=False):
 	['dpkg -i google-drive-ocamlfuse_0.7.0-0ubuntu1_amd64.deb',True],
         ['apt-get install -f',True],
 	['apt-get -y install -qq fuse', True],
-	['unzip gdfuse.zip -d /', not os.path.isdir("/root/.gdfuse")]]
+	['unzip gdfuse.zip -d /', not os.path.isdir("/root/.gdfuse")],
+	['pip install ipywidgets'],
+	['jupyter nbextension enable --py widgetsnbextension --sys-prefix']]
   
 	for i in tqdm(cmd):
 	  if i[1]:
