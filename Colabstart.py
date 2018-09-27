@@ -44,8 +44,8 @@ def load(port=6007,show_result=False):
         ['apt-get install -f',True],
 	['apt-get -y install -qq fuse', True],
 	['unzip gdfuse.zip -d /', not os.path.isdir("/root/.gdfuse")],
-	['pip install ipywidgets'],
-	['jupyter nbextension enable --py widgetsnbextension --sys-prefix']]
+	['pip install ipywidgets',True],
+	['jupyter nbextension enable --py widgetsnbextension --sys-prefix', True]]
   
 	for i in tqdm(cmd):
 	  if i[1]:
