@@ -1,5 +1,6 @@
 from __future__ import print_function
-
+import time
+from GPUtil import GPU 
 import os
 import pandas
 import numpy as np
@@ -12,8 +13,11 @@ def Background_(function):
     
 def show_():
     while True:
+        GPUs = GPU.getGPUs()
+        gpu = GPUs[0]
         time.sleep(2)
-        print(get_ipython().getoutput('gpustat' )[1], end='\r')
+        print("GPU RAM Free: {0:.0f}MB | Used: {1:.0f}MB | Util {2:3.0f}% | Total {3:.0f}MB".format(gpu.memoryFree, gpu.memoryUsed, gpu.memoryUtil*100, gpu.memoryTotal),end='\r')
+        
         
 Background_(show_)
 
