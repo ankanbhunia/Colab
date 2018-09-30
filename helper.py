@@ -1,6 +1,6 @@
 from __future__ import print_function
 import time
-from GPUtil import GPU 
+import GPUtil as GPU 
 import os
 import pandas
 import numpy as np
