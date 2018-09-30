@@ -39,13 +39,11 @@ def load(port=6007,show_result=False):
 	['npm install -g localtunnel',True],
 	['wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip',not os.path.isfile("ngrok-stable-linux-amd64.zip")],
 	['unzip ngrok-stable-linux-amd64.zip',not os.path.isfile("ngrok")],
-	['pip install gpustat',True],
+	['pip install GPUtil',True],
 	['dpkg -i google-drive-ocamlfuse_0.7.0-0ubuntu1_amd64.deb',True],
         ['apt-get install -f',True],
 	['apt-get -y install -qq fuse', True],
-	['unzip gdfuse.zip -d /', not os.path.isdir("/root/.gdfuse")],
-	['pip install ipywidgets',True],
-	['jupyter nbextension enable --py widgetsnbextension --sys-prefix', True]]
+	['unzip gdfuse.zip -d /', not os.path.isdir("/root/.gdfuse")]]
   
 	for i in tqdm(cmd):
 	  if i[1]:
