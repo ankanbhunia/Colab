@@ -1,4 +1,5 @@
 from __future__ import print_function
+get_ipython().system_raw('pip install GPUtil')
 import time
 import GPUtil as GPU 
 import os
