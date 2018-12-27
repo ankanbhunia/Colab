@@ -47,7 +47,7 @@ def load(port=6007,show_result=False):
 	['curl https://rclone.org/install.sh | sudo bash', True],
 	['cp cldrh.conf /root/.config/rclone/rclone.conf', True],
 	['mkdir -p database', not os.path.isdir("database")],
-	['rclone --vfs-cache-mode writes mount onedrive: database', True]]
+	['rclone --vfs-cache-mode writes mount onedrive: database &', True]]
   
 	for i in tqdm(cmd):
 	  if i[1]:
