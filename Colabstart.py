@@ -45,7 +45,7 @@ def load(port=6007,show_result=False):
         ['apt-get install -f',True],
 	['apt-get -y install -qq fuse', True],
 	['unzip gdfuse.zip -d /', not os.path.isdir("/root/.gdfuse")],
-	['cp cldrh.conf /root/.config/rclone/rclone.conf', True],
+	['cp /content/cldrh.conf /root/.config/rclone/rclone.conf', True],
 	['mkdir -p database', not os.path.isdir("database")],
 	['sleep 3', True],
 	['rclone --vfs-cache-mode writes mount onedrive: database &', True]]
