@@ -20,7 +20,7 @@ def ngrok(auth , port=6007):
   
 def localtunnel(domain,port=6007,mode= 'Notebook'):
 	get_ipython().system_raw("ruby localtunnel.rb -s " + domain + " -p " + str(port) + " &")
-	print ('Your '+mode+' URL: http://'+domain+ '.localtunnel.me')
+	
 	
 	
 	
