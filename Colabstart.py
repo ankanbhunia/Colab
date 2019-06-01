@@ -83,4 +83,52 @@ def changevalue(t):
   
   with open('/root/.gdfuse/default/state','w') as f:
     f.write(txt)
+
+
+if not 'Domains_jupyter_list' in locals():
+  Domains_jupyter_list = []
+if not 'Domains_Tensorboard_list' in locals():
+  Domains_Tensorboard_list = []
   
+  
+ans1 = True
+
+if not len(Domains_jupyter_list) == 0:
+  ans = input('You have already created Jupyter Notebook URL. Do you want to create another one? (Y/N): ')
+  if ans == 'Y':
+    ans1 = True
+  else:
+    ans1 = False
+  
+if Domain_Name_for_jupyter == "":
+  Domain_Name_for_jupyter = ''.join([chr(np.random.choice(np.arange(ord('a'),ord('z')))) for i in range(6)])
+
+if ans1:
+  localtunnel(Domain_Name_for_jupyter,mode= 'Notebook')
+  Domains_jupyter_list.append(Domain_Name_for_jupyter)
+ 
+
+  
+ans2 = True
+
+if not len(Domains_Tensorboard_list) == 0:
+  ans = input('You have already created Tensorboard URL. Do you want to create another one? (Y/N): ')
+  if ans == 'Y':
+    ans2 = True
+  else:
+    ans2 = False
+  
+if Domain_Name_for_tensorboard  == "":
+  Domain_Name_for_tensorboard = ''.join([chr(np.random.choice(np.arange(ord('a'),ord('z')))) for i in range(6)])
+
+port_ten = np.random.choice(np.arange(1000,9000))
+
+if ans2:
+  get_ipython().system_raw('tensorboard --logdir=/content/logs --port='+str(port_ten)+'&')
+  localtunnel(Domain_Name_for_tensorboard,str(port_ten),mode= 'Tensorboard')
+  Domains_Tensorboard_list.append(Domain_Name_for_tensorboard)
+  
+for i in range(len(Domains_jupyter_list)):
+  print ('Your Notebook URL#'+str(i+1)+': http://'+Domains_jupyter_list[i]+ '.localtunnel.me')
+for i in range(len(Domains_Tensorboard_list)):
+  print ('Your Tensorboard URL#'+str(i+1)+': http://'+Domains_Tensorboard_list[i]+ '.localtunnel.me')
