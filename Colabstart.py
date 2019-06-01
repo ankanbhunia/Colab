@@ -84,6 +84,8 @@ def changevalue(t):
   with open('/root/.gdfuse/default/state','w') as f:
     f.write(txt)
 
+load()
+
 
 if not 'Domains_jupyter_list' in locals():
   Domains_jupyter_list = []
