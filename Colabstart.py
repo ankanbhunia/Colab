@@ -129,7 +129,9 @@ if ans2:
   get_ipython().system_raw('tensorboard --logdir=/content/logs --port='+str(port_ten)+'&')
   localtunnel(Domain_Name_for_tensorboard,str(port_ten),mode= 'Tensorboard')
   Domains_Tensorboard_list.append(Domain_Name_for_tensorboard)
-  
+
+print ('')
+print ('')
 for i in range(len(Domains_jupyter_list)):
   print ('Your Notebook URL#'+str(i+1)+': http://'+Domains_jupyter_list[i]+ '.localtunnel.me')
 for i in range(len(Domains_Tensorboard_list)):
