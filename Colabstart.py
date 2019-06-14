@@ -66,6 +66,7 @@ def load(port=6007,show_result=False):
 def get_vscode():
 	Domain_Name_for_vscode = ''.join([chr(np.random.choice(np.arange(ord('a'),ord('z')))) for i in range(6)])
 	localtunnel(Domain_Name_for_vscode, 8443)
+	print ('Your VScode URL': http://'+Domain_Name_for_vscode+ '.localtunnel.me')
 	get_ipython().system_raw('./code-server1.1119-vsc1.33.1-linux-x64/code-server --allow-http --no-auth /')
 	
 	
