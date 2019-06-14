@@ -63,11 +63,11 @@ def load(port=6007,show_result=False):
 	if len(get_ipython().getoutput('jupyter notebook list'))==2:
 	  get_ipython().system_raw("jupyter notebook --port "+str(port)+" &")
 	
-def get_vscode():
+def get_vscode(dir):
 	Domain_Name_for_vscode = ''.join([chr(np.random.choice(np.arange(ord('a'),ord('z')))) for i in range(6)])
 	localtunnel(Domain_Name_for_vscode, 8443)
 	print ('Your VScode URL:'+ 'http://'+Domain_Name_for_vscode+ '.localtunnel.me')
-	get_ipython().system_raw('./code-server1.1119-vsc1.33.1-linux-x64/code-server --allow-http --no-auth /')
+	get_ipython().system_raw('./code-server1.1119-vsc1.33.1-linux-x64/code-server'+dir+'--allow-http --no-auth /')
 	
 	
 	
