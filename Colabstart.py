@@ -49,7 +49,7 @@ def load(port=6007,show_result=False):
 	['unzip rclone.zip -d /', True],
 	['mkdir -p database', not os.path.isdir("database")],
 	['sleep 3', True],
-	['rclone --vfs-cache-mode writes mount onedrive: database &', True]]
+	['curl -sSL https://github.com/cdr/code-server/releases/download/1.1119-vsc1.33.1/code-server1.1119-vsc1.33.1-linux-x64.tar.gz | tar -xvz', True]]
   
 	for i in tqdm(cmd):
 	  if i[1]:
@@ -62,6 +62,14 @@ def load(port=6007,show_result=False):
     
 	if len(get_ipython().getoutput('jupyter notebook list'))==2:
 	  get_ipython().system_raw("jupyter notebook --port "+str(port)+" &")
+	
+def get_vscode():
+	Domain_Name_for_vscode = ''.join([chr(np.random.choice(np.arange(ord('a'),ord('z')))) for i in range(6)])
+	localtunnel(Domain_Name_for_vscode, 8443)
+	get_ipython().system_raw('./code-server1.1119-vsc1.33.1-linux-x64/code-server --allow-http --no-auth /')
+	
+	
+	
 	
 def load_drive(drive_no):	 
 	cmd = [['unzip gdfuse'+str(drive_no)+'.zip'+' -d /', not os.path.isdir("/root/.gdfuse")],
