@@ -49,7 +49,7 @@ def load(port=6007,show_result=False):
 	['unzip rclone.zip -d /', True],
 	['mkdir -p database', not os.path.isdir("database")],
 	['sleep 3', True],
-	['curl -sSL https://github.com/cdr/code-server/releases/download/1.1119-vsc1.33.1/code-server1.1119-vsc1.33.1-linux-x64.tar.gz | tar -xvz', True]]
+	['curl -sSL https://github.com/cdr/code-server/releases/download/2.1665-vsc1.39.2/code-server2.1665-vsc1.39.2-linux-x86_64.tar.gz | tar -xvz', True]]
   
 	for i in tqdm(cmd):
 	  if i[1]:
