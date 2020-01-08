@@ -24,7 +24,7 @@ def localtunnel(domain,port=6007,mode= 'Notebook'):
 	
 	
 	
-def load(port=6007,show_result=True):
+def load(port=6007,show_result=False):
 	cmd = [['apt-get install -y -qq software-properties-common python-software-properties module-init-tools',True],
 	['add-apt-repository -y ppa:alessandro-strada/ppa 2>&1 > /dev/null',True],
 	['apt-get update -qq 2>&1 > /dev/null',True],
