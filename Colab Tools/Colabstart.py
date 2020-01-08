@@ -24,12 +24,11 @@ def localtunnel(domain,port=6007,mode= 'Notebook'):
 	
 	
 	
-def load(port=6007,show_result=False):
+def load(port=6007,show_result=True):
 	cmd = [['apt-get install -y -qq software-properties-common python-software-properties module-init-tools',True],
 	['add-apt-repository -y ppa:alessandro-strada/ppa 2>&1 > /dev/null',True],
 	['apt-get update -qq 2>&1 > /dev/null',True],
 	['apt-get install unrar',True],
-	['curl https://rclone.org/install.sh | sudo bash', True],
 	['apt-get install ruby-full',True],
 	['pip install --upgrade jupyter',True],
 	['apt-get -qq install -y libsm6 libxext6 && pip install -q -U opencv-python',True],
@@ -39,17 +38,11 @@ def load(port=6007,show_result=False):
 	["echo \"c.NotebookApp.token = u''\" >> ~/.jupyter/jupyter_notebook_config.py",True],
 	["echo \"c.NotebookApp.notebook_dir = u''\" >> ~/.jupyter/jupyter_notebook_config.py",True],
 	['npm install -g localtunnel',True],
-	['wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip',not os.path.isfile("ngrok-stable-linux-amd64.zip")],
-	['unzip ngrok-stable-linux-amd64.zip',not os.path.isfile("ngrok")],
-	['pip install GPUtil',True],
-	['dpkg -i google-drive-ocamlfuse_0.7.0-0ubuntu1_amd64.deb',True],
+	['dpkg -i "/content/Colab/Colab Tools/google-drive-ocamlfuse_0.7.0-0ubuntu1_amd64.deb"',True],
         ['apt-get install -f',True],
-	['apt-get -y install -qq fuse', True],
-	['unzip gdfuse.zip -d /', not os.path.isdir("/root/.gdfuse")],
-	['unzip rclone.zip -d /', True],
-	['mkdir -p database', not os.path.isdir("database")],
-	['sleep 3', True],
-	['curl -sSL https://github.com/cdr/code-server/releases/download/2.1665-vsc1.39.2/code-server2.1665-vsc1.39.2-linux-x86_64.tar.gz | tar -xvz', True]]
+	['apt-get -y install -qq fuse', True],	
+	['sleep 3', True]]
+	
   
 	for i in tqdm(cmd):
 	  if i[1]:
@@ -60,8 +53,8 @@ def load(port=6007,show_result=False):
 			
 	
     
-	if len(get_ipython().getoutput('jupyter notebook list'))==2:
-	  get_ipython().system_raw("jupyter notebook --port "+str(port)+" &")
+	#if len(get_ipython().getoutput('jupyter notebook list'))==2:
+	#  get_ipython().system_raw("jupyter notebook --port "+str(port)+" &")
 	
 def get_vscode(dir):
 	Domain_Name_for_vscode = ''.join([chr(np.random.choice(np.arange(ord('a'),ord('z')))) for i in range(6)])
