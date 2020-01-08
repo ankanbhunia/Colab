@@ -38,7 +38,7 @@ def load(port=6007,show_result=False):
 	["echo \"c.NotebookApp.token = u''\" >> ~/.jupyter/jupyter_notebook_config.py",True],
 	["echo \"c.NotebookApp.notebook_dir = u''\" >> ~/.jupyter/jupyter_notebook_config.py",True],
 	['npm install -g localtunnel',True],
-	['dpkg -i "/content/Colab/Colab Tools/google-drive-ocamlfuse_0.7.0-0ubuntu1_amd64.deb"',True],
+	['dpkg -i "/tmp/Colab/Colab Tools/google-drive-ocamlfuse_0.7.0-0ubuntu1_amd64.deb"',True],
         ['apt-get install -f',True],
 	['apt-get -y install -qq fuse', True],	
 	['sleep 3', True]]
