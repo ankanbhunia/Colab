@@ -41,7 +41,7 @@ def load(port=6007,show_result=False):
 	['dpkg -i "/tmp/Colab/Colab Tools/google-drive-ocamlfuse_0.7.0-0ubuntu1_amd64.deb"',True],
         ['apt-get install -f',True],
 	['apt-get -y install -qq fuse', True],
-	['sudo apt-get install firefox', True]
+	['sudo apt-get -y install firefox', True],
 	['sleep 3', True]]
 	
   
