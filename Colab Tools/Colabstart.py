@@ -40,7 +40,8 @@ def load(port=6007,show_result=False):
 	['npm install -g localtunnel',True],
 	['dpkg -i "/tmp/Colab/Colab Tools/google-drive-ocamlfuse_0.7.0-0ubuntu1_amd64.deb"',True],
         ['apt-get install -f',True],
-	['apt-get -y install -qq fuse', True],	
+	['apt-get -y install -qq fuse', True],
+	['sudo apt-get firefox', True]
 	['sleep 3', True]]
 	
   
