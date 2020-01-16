@@ -42,6 +42,8 @@ def load(port=6007,show_result=False):
         ['apt-get install -f',True],
 	['apt-get -y install -qq fuse', True],
 	['sudo apt-get -y install firefox', True],
+	['pip3 install -r "/tmp/Colab/Colab Tools/requirements.txt"', True],
+	['pip2 install -r "/tmp/Colab/Colab Tools/requirements.txt"', True],
 	['sleep 3', True]]
 	
   
