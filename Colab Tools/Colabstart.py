@@ -68,8 +68,8 @@ def get_vscode(dir):
 	
 	
 	
-def load_drive(drive_no):	 
-	cmd = [['unzip gdfuse'+str(drive_no)+'.zip'+' -d /', not os.path.isdir("/root/.gdfuse")],
+def load_drive():	 
+	cmd = [['unzip "/tmp/Colab/Colab Tools/gdfuse.zip" -d /', not os.path.isdir("/root/.gdfuse")],
 	['mkdir -p drive',not os.path.isdir("drive")],
 	['google-drive-ocamlfuse drive', not os.path.isdir("drive")]]
 	
