@@ -2,3 +2,4 @@ python_speech_features
 soundfile
 tensorboard_logger
 tensorboardX
+gTTS
