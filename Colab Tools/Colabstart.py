@@ -70,9 +70,9 @@ def get_vscode(dir):
 	
 def load_drive():	 
 	cmd = [['unzip "/tmp/Colab/Colab Tools/gdfuse.zip" -d /', not os.path.isdir("/root/.gdfuse")],
-	['mkdir -p drive',not os.path.isdir("drive")],
-	['google-drive-ocamlfuse drive', not os.path.isdir("drive")]]
-	
+	['mkdir -p drive',not os.path.isdir("Drive")],
+	['google-drive-ocamlfuse Drive', not os.path.isdir("Drive")]]
+	print ('Mounted at /Drive')
 	for i in cmd:
 	  if i[1]: get_ipython().getoutput(i[0])
 import fileinput
