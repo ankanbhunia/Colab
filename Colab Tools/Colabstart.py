@@ -9,8 +9,6 @@ import time
 import pickle
 import sys
 import os
-get_ipython().system_raw('pip3 install PySimpleGUI')
-
 
 def add_files_in_folder(treedata, parent, dirname, savepath,c):
 
@@ -118,7 +116,6 @@ def changevalue(t):
   with open('/root/.gdfuse/default/state','w') as f:
     f.write(txt)
 
-load()
 
 def get_urls():
 	if not 'Domains_jupyter_list' in locals():
