@@ -28,7 +28,6 @@ def add_files_in_folder(treedata, parent, dirname, savepath,c):
             treedata.Insert(parent, fullname, f, values=[], icon=folder_icon)
             #limit = sys.getsizeof(treedata.tree_dict)
             if c<5: 
-              print (c)
               add_files_in_folder(treedata,fullname, fullname, savepath,c)
             
         elif fullname.endswith('zip') or fullname.endswith('rar') or fullname.endswith('7z') or fullname.endswith('gz'):
